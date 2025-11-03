@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body {
+      background-color: #e6f9e6; /* Light green background */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #006633;
+      margin-top: 30px;
+    }
+
+    form {
+      background-color: #ffffff;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 102, 51, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #006633;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    
+  </style>
+</head>
+<body>
+ 
+  <h1>Registration Form</h1>
+
+  <form onsubmit="alert('Saved your profile.'); return false;">
+    <label>Name:</label>
+    <input type="text" required>
+
+    <label>Father Name:</label>
+    <input type="text" required>
+
+    <label>Date of Birth:</label>
+    <input type="date" required>
+
+    <label>Address:</label>
+    <textarea rows="3" required></textarea>
+
+    <label>Email:</label>
+    <input type="email" required>
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="Male" required> Male
+    <input type="radio" name="gender" value="Female"> Female
+
+    <label>Qualification:</label>
+    <select required>
+      <option value="">--Select--</option>
+      <option value="10th">10th</option>
+      <option value="12th">12th</option>
+      <option value="B.Tech">B.Tech</option>
+      <option value="M.Tech">M.Tech</option>
+    </select>
+
+    <label>Hobbies:</label>
+    <input type="checkbox" value="Reading"> Reading
+    <input type="checkbox" value="Coding"> Coding
+    <input type="checkbox" value="Music"> Music
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

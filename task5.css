@@ -1,0 +1,15 @@
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+th,td{
+    border:1px solid  black;
+    padding:5px;
+}
+tr:nth-child(even){
+    background-color:bisque;
+}
+tr:hover{
+    background-color: blue;
+    color:aliceblue;
+}

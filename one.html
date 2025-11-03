@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+
+
+</head>
+
+<body>
+<div class="container">
+  <h2>Registration Form</h2>
+
+  <form id="regForm">
+    <label>Full Name:</label>
+    <input type="text" id="name" required>
+    <p id="nameError" class="error"></p>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+    <p id="emailError" class="error"></p>
+
+    <label>Password:</label>
+    <input type="password" id="password" required>
+    <p id="passwordError" class="error"></p>
+
+    <label>Phone Number:</label>
+    <input type="tel" id="phone" required pattern="[0-9]{10}">
+    <p id="phoneError" class="error"></p>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p id="successMsg" class="success"></p>
+</div>
+
+<script>
+  const form = document.getElementById("regForm");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const passInput = document.getElementById("password");
+  const phoneInput = document.getElementById("phone");
+
+  // Validate name
+  nameInput.addEventListener("input", () => {
+    const error = document.getElementById("nameError");
+    if (nameInput.value.trim() === "") {
+      error.textContent = "Name is required";
+      nameInput.style.borderColor = "red";
+    } else {
+      error.textContent = "";
+      nameInput.style.borderColor = "green";
+    }
+  });
+
+  // Validate email
+  emailInput.addEventListener("input", () => {
+    const error = document.getElementById("emailError");
+    const regex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!regex.test(emailInput.value)) {
+      error.textContent = "Invalid email format";
+      emailInput.style.borderColor = "red";
+    } else {
+      error.textContent = "";
+      emailInput.style.borderColor = "green";
+    }
+  });
+
+  // Validate password
+  passInput.addEventListener("input", () => {
+    const error = document.getElementById("passwordError");
+    const strong = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).{6,}$/;
+    if (!strong.test(passInput.value)) {
+      error.textContent = "Password must be 6+ chars, include number & symbol";
+      passInput.style.borderColor = "red";
+    } else {
+      error.textContent = "";
+      passInput.style.borderColor = "green";
+    }
+  });
+
+  // Validate phone
+  phoneInput.addEventListener("input", () => {
+    const error = document.getElementById("phoneError");
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phoneInput.value)) {
+      error.textContent = "Phone must be 10 digits";
+      phoneInput.style.borderColor = "red";
+    } else {
+      error.textContent = "";
+      phoneInput.style.borderColor = "green";
+    }
+  });
+
+  // Form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const allValid =
+      nameInput.style.borderColor === "green" &&
+      emailInput.style.borderColor === "green" &&
+      passInput.style.borderColor === "green" &&
+      phoneInput.style.borderColor === "green";
+
+    const successMsg = document.getElementById("successMsg");
+    if (allValid) {
+      successMsg.textContent = "🎉 Registration Successful!";
+      form.reset();
+      [nameInput, emailInput, passInput, phoneInput].forEach(
+        (el) => (el.style.borderColor = "#ccc")
+      );
+    } else {
+      successMsg.textContent = "";
+      alert("Please fix all errors before submitting!");
+    }
+  });
+</script>
+</body>
+</html>

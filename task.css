@@ -1,0 +1,18 @@
+.dropdown li{
+    list-style:none;
+    position:relative;
+}
+.submenu{
+    display:none;
+    background-color:red;
+    font-size:large;
+    position:absolute;
+}
+.dropdown li:hover .submenu{
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+}
+.dropdown  .mainmenu{
+    padding:20px;
+}

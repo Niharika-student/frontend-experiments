@@ -1,0 +1,18 @@
+.firstline{
+    color:rgb(212, 135, 18);
+
+    font-style: oblique;
+
+}
+.secondline{
+    color:rgb(212, 135, 18);
+    background-color: bisque;
+    font-style: oblique;
+
+}
+marquee{
+     color:rgb(212, 135, 18);
+      background-color: rgb(128, 98, 166);
+    font-style: oblique;
+
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple CSS Tabs with Radio Buttons</title>
+  <style>
+    /* Hide the radio buttons */
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* Tab labels */
+    .tab-label {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #ddd;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      margin-right: -1px;
+    }
+
+    /* Active tab label */
+    input[type="radio"]:checked + .tab-label {
+      background: #fff;
+      border-bottom: 1px solid #fff;
+      font-weight: bold;
+    }
+
+    /* Panels */
+    .tab-content {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #fff;
+      display: none;
+    }
+
+    /* Show only the selected panel */
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tabs -->
+  <input type="radio" name="tabs" id="tab1" checked>
+  <label for="tab1" class="tab-label">Tab 1</label>
+
+  <input type="radio" name="tabs" id="tab2">
+  <label for="tab2" class="tab-label">Tab 2</label>
+
+  <input type="radio" name="tabs" id="tab3">
+  <label for="tab3" class="tab-label">Tab 3</label>
+
+  <!-- Panels -->
+  <div id="content1" class="tab-content">
+    <p>hi myy name is niharika</p>
+  </div>
+  <div id="content2" class="tab-content">
+    <p>i am studying in kl university.in </p>
+  </div>
+  <div id="content3" class="tab-content">
+    <p>This is Tab 3 content.</p>
+  </div>
+
+</body>
+</html>
